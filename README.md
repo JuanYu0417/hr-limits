@@ -41,7 +41,7 @@ Text(stringResource(R.string.age))
 ```
 The strings are stored in:**strings.xml**  
 
-
+# Screenshot  
 ![screenshot](screenshots/1.png)
 
 
