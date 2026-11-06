@@ -42,7 +42,7 @@ Text(stringResource(R.string.age))
 The strings are stored in:**strings.xml**  
 
 
-(screenshot)
+![screenshot](screenshots/1.png)
 
 
 

@@ -26,7 +26,11 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             HeartRateLimitsTheme {
+                Scaffold(
+                    modifier = Modifier.fillMaxSize()
+                ) { innerPadding ->
                     HeartRateLimits(
+                        modifier = Modifier.padding(innerPadding)
                     )
                 }
             }
@@ -42,19 +46,21 @@ fun  HeartRateLimitsPreview() {
     }
 }
 @Composable
-fun HeartRateLimits() {
+fun HeartRateLimits( modifier: Modifier = Modifier) {
     var age by remember { mutableStateOf("") }
-    val ageNumber = age.toIntOrNull() ?:0
+    val ageNumber = age.toIntOrNull() ?: 0
     val lowerLimit = (220 - ageNumber) * 0.65
     val upperLimit = (220 - ageNumber) * 0.85
-    Column {
+    Column(modifier = modifier) {
         Text(stringResource(R.string.age))
         TextField(
             value = age,
             onValueChange = { age = it }
         )
         Text(stringResource(R.string.heart_rate_limits))
-        if(ageNumber>0){
-        Text("${String.format("%.2f", lowerLimit)} - ${String.format("%.2f", upperLimit)}")}
+        if (ageNumber > 0) {
+            Text("${String.format("%.2f", lowerLimit)} - ${String.format("%.2f", upperLimit)}")
+        }
     }
+}
 }
